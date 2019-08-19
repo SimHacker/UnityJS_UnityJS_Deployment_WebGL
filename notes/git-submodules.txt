@@ -63,3 +63,4 @@ git push origin HEAD:master
 git branch
 git checkout master
 git pull
+cd ..
