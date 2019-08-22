@@ -1,0 +1,25 @@
+[
+    {
+        "gameID": "UnityJS",
+        "name": "UnityJS",
+        "description": "UnityJS (built in data)",
+        "editable": false,
+        "handleStartedScript": "bridge.live = false; CreateUnityJSInitial();\n",
+        "handleLoadedScript": "CreateUnityJS();"
+    },
+    {
+        "gameID": "UnityJS",
+        "name": "UnityJS Live",
+        "description": "UnityJS (live data)",
+        "editable": false,
+        "handleStartedScript": "bridge.live = true; CreateUnityJSInitial();",
+        "handleLoadedScript": "CreateUnityJS();"
+    },
+    {
+        "gameID": "UnityJS",
+        "name": "Hello World",
+        "description": "Simple Hello World Example",
+        "editable": true,
+        "handleLoadedScript": "bridge.createPlace();\nbridge.world.ball = bridge.createObject({\n    prefab: 'Prefabs/Ball', \n    update: {\n        'transform/localPosition': {x: 0, y: 5, z: 0},\n        'transform/localScale': {x: 5, y: 5, z: 5}\n    },\n});"
+    }
+]

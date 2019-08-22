@@ -1,0 +1,2 @@
+echo "Pushing UnityJS WebGl Unity app JavaScript code..."
+rsync -r --copy-links ../Project/Assets/StreamingAssets admin@struct.studio:/home/admin/htdocs/apps/unityjs

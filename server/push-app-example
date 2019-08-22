@@ -1,2 +1,0 @@
-echo "Pushing example WebGL Unity app..."
-rsync -r --copy-links --delete ../Deployments/Example_WebGL/Builds/Example_WebGL/ admin@struct.studio:/home/admin/htdocs/apps/example

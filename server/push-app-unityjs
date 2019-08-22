@@ -1,0 +1,2 @@
+echo "Pushing UnityJS WebGL Unity app..."
+rsync -r --copy-links --delete ../Build/ admin@struct.studio:/home/admin/htdocs/apps/unityjs

@@ -1,0 +1,24 @@
+[submodule "Project/Assets/Libraries/JsonDotNet"]
+	path = Project/Assets/Libraries/JsonDotNet
+	url = git@github.com:SimHacker/UnityJS_JsonDotNet_Library.git
+[submodule "Project/Assets/Libraries/LeanTween"]
+	path = Project/Assets/Libraries/LeanTween
+	url = git@github.com:SimHacker/UnityJS_LeanTween_Library.git
+[submodule "Project/Assets/Libraries/TextMeshPro"]
+	path = Project/Assets/Libraries/TextMeshPro
+	url = git@github.com:SimHacker/UnityJS_TextMeshPro_Library.git
+[submodule "Project/Assets/Libraries/UnityJS"]
+	path = Project/Assets/Libraries/UnityJS
+	url = git@github.com:SimHacker/UnityJS_UnityJS_Library.git
+[submodule "Project/Assets/Libraries/UnitySocketIOClient"]
+	path = Project/Assets/Libraries/UnitySocketIOClient
+	url = git@github.com:SimHacker/UnityJS_UnitySocketIOClient_Library.git
+[submodule "Project/Assets/Libraries/WebGLAce"]
+	path = Project/Assets/Libraries/WebGLAce
+	url = git@github.com:SimHacker/UnityJS_WebGLAce_Library.git
+[submodule "Project/Assets/StreamingAssets/WebGLAce"]
+	path = Project/Assets/StreamingAssets/WebGLAce
+	url = git@github.com:SimHacker/UnityJS_WebGLAce_StreamingAssets.git
+[submodule "Project/Assets/StreamingAssets/UnityJS"]
+	path = Project/Assets/StreamingAssets/UnityJS
+	url = git@github.com:SimHacker/UnityJS_UnityJS_StreamingAssets.git
