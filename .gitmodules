@@ -22,3 +22,6 @@
 [submodule "Project/Assets/StreamingAssets/UnityJS"]
 	path = Project/Assets/StreamingAssets/UnityJS
 	url = git@github.com:SimHacker/UnityJS_UnityJS_StreamingAssets.git
+[submodule "Project/Assets/WebGLTemplates/UnityJS"]
+	path = Project/Assets/WebGLTemplates/UnityJS
+	url = git@github.com:SimHacker/UnityJS_UnityJS_WebGLTemplate.git
