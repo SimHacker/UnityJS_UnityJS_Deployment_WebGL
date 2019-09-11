@@ -64,3 +64,94 @@ git branch
 git checkout master
 git pull
 cd ..
+
+----
+
+Mastering Git Submodules
+https://medium.com/@porteneuve/mastering-git-submodules-34c65e940407
+
+git config --global status.submoduleSummary true
+
+git diff --submodule=log
+git config --global diff.submodule log
+
+After doing a pull on the container, always do a:
+git submodule update --init --recursive
+
+git config --global alias.spull '!git pull && git submodule sync --recursive && git submodule update --init --recursive'
+
+#! /bin/bash
+git pull "$@" &&
+  git submodule sync --recursive &&
+  git submodule update --init --recursive
+
+git push --recurse-submodules=on-demand
+
+git config --global alias.spush 'push --recurse-submodules=on-demand'
+
+Deleting modules:
+git submodule deinit path/to/module # ensure local config cleanup
+git rm path/to/module               # clean WD and .gitmodules
+rm -rf .git/modules/vendor/plugins/demo
+
+After all, if we were to use submodules, they’d need either a git clone --recursive to grab it, or the bulletproof sequence of git fetch + git submodule sync --recursive + git submodule update --init --recursive for an existing repo. Ain’t life fun.
+
+git push
+echo '// Now super fast' >> vendor/plugins/demo/lib/index.js
+git ci -am "[To backport] Faster plugin"
+date >> main-file-1
+git ci -am "Container-only work"
+date >> vendor/plugins/demo/fake-work
+date >> main-file-2
+git ci -am "[To backport] Timestamping (requires container tweaks)"
+echo '// Container-specific' >> vendor/plugins/demo/lib/index.js
+git ci -am "Container-specific plugin update"
+
+----
+
+Mastering Git Subtrees
+https://medium.com/@porteneuve/mastering-git-subtrees-943d29a798ec
+
+https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt
+
+https://github.com/ingydotnet/git-subrepo#readme
+
+----
+
+Git Rebase and Merge
+
+https://medium.com/@porteneuve/getting-solid-at-git-rebase-vs-merge-4fa1a48c53aa
+
+git config —global alias.tidy “rebase -i @{upstream}..”
+
+----
+
+https://medium.com/@porteneuve/30-git-cli-options-you-should-know-about-15423e8771df
+
+----
+
+https://github.com/lars-wobus/unity-test-git-submodules
+
+----
+
+https://www.grapefruitgames.com/blog/2013/04/the-joys-of-submodule-ing-in-unity/
+https://www.grapefruitgames.com/blog/2013/07/unitygitpt4/
+
+----
+
+https://prime31.github.io/A-Method-for-Working-with-Shared-Code-with-Unity-and-Git/
+
+----
+
+https://medium.com/@andybak_95963/neater-unity-2018-projects-with-git-submodules-and-sparse-checkout-3294e626a6f9
+https://stackoverflow.com/questions/45688121/how-to-do-submodule-sparse-checkout-with-git
+
+----
+
+https://github.com/ingydotnet/git-subrepo
+
+----
+
+https://gist.github.com/OleksiyRudenko/86d378b56fe690e47a066b8eeb4ac5b2
+
+----

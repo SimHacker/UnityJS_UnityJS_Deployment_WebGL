@@ -9,3 +9,8 @@ https://github.com/sloopidoopi/Spout4Unity
 https://github.com/Clodo76/vr-desktop-mirror
 
 https://forum.unity3d.com/threads/unity3d-plugin-for-embedding-webpages-on-windows-is-ready.83071/
+
+https://github.com/schlunsen/UnityAwesomium/blob/master/UnityAwesomiumSource/Unity/Unity/WebCore.h
+https://github.com/schlunsen/UnityAwesomium/blob/master/UnityAwesomiumSource/Unity/Unity/AwesomiumPlugin.cpp
+
+https://bitbucket.org/TSS_DEV/cef-mfc/src/default/
