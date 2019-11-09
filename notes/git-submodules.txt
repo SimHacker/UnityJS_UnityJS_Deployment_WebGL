@@ -1,3 +1,13 @@
+Git GUI on Windows
+git@github.com:SimHacker/UnityJS_Optionality_Deployment_WebGL.git
+
+--
+
+git clone --recursive git@github.com:SimHacker/UnityJS_UnityJS_Deployment_WebGL.git
+git clone --recursive git@github.com:SimHacker/UnityJS_Optionality_Deployment_WebGL.git
+
+----
+
 https://git-scm.com/book/en/v2/Git-Tools-Submodules
 https://git-scm.com/docs/git-submodule
 https://chrisjean.com/git-submodules-adding-using-removing-and-updating/

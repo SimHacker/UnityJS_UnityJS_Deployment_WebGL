@@ -31,3 +31,24 @@ http://magpcss.org/ceforum/apidocs3/projects/(default)/CefWindowInfo.html
 https://gist.github.com/totherik/3a4432f26eea1224ceeb
 v8 --allow-natives-syntax RuntimeFunctions
 
+----
+
+How to build cef client dll library:
+
+https://stackoverflow.com/questions/45142685/how-to-use-chromium-embedded-framework-with-visual-studio-2017-c
+
+Download CEF3 binaries, and extract archive to folder
+Download and install CMake
+Open CMake, and set:
+Where is the source code: folder
+Where to build the binaries: folder/build
+Press Configure
+Press Generate
+Open solution in folder/build/cef.sln
+Build Debug/Release
+Reference in your project folder/build/libcef_dll_wrapper/[Debug|Release]/libcef_dll_wrapper.lib
+Copy files to your bin folder:
+folder/[Debug|Release]
+folder/Resources
+
+----

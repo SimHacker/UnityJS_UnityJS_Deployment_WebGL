@@ -1,0 +1,232 @@
+----
+
+Representing and Editing JSON with Spreadsheets
+
+https://medium.com/@donhopkins/representing-and-editing-json-with-spreadsheets-8f8832db5239
+
+----
+
+Source code compatible with web browsers and Google Sheets app scripting:
+
+Project/Assets/StreamingAssets/UnityJS/sheets.jss
+
+----
+
+Spreadsheet JSON Parser
+
+null
+boolean
+booleans
+string
+strings
+number float
+numbers floats
+integer
+integers
+json
+object
+array
+sheet
+grid
+range
+  all transpose columMajor rowMajor row column cell rows columns sheetName sheetID
+table
+
+----
+
+Adds a menu to the Google Sheets user interface called "JSONster", with the following items:
+    Format Spreadsheet as JSON
+    Make Meta Data Sheets
+
+----
+
+Format Spreadsheet as JSON
+
+Parses JSON structures in the spreadsheet and applies formatting.
+Work in progress. Naive code that is extremely slow because of the nature of the Google Sheets API.
+Needs to be rewritten to buffer all formatting changes and make them at once instead of incrementally.
+Needs to provide feedback about errors and warnings.
+
+----
+
+Make MetaData Sheets
+
+It's fast and easy to download CSV or TSV representations of
+individual sheets in a spreadsheet, but there is no fast easy way to
+download the names ranges, or formatting attributes.
+
+To solve this problem, "Make MetaData Sheets" can create named ranges
+in sheets marked up by named tags, then export the named ranges and
+requested formatting layers into additional metadata sheets, which can
+be downloaded along with the corresponding data sheets as plain CSV or
+TSV files.
+
+Create named ranges in sheets marked up by named tags.
+Export named ranges to sheets.
+Export requested formatting attributes to sheets.
+
+----
+
+Google Sheets Notes
+
+URL to downloads one sheet (sheetID) of a Google Sheets document
+(spreadsheetID) as a TSV (tab separataed values) file:
+    'https://docs.google.com/spreadsheets/d/' +
+    spreadsheetID + 
+    '/export?format=tsv&id=' +
+    spreadsheetID +
+    '&gid=' +
+    sheetID
+
+----
+
+Clasp Notes
+
+Clasp is a command line tool for managing google documents and
+projects with Google App Scripts. It allows you to pull and push
+scripts and other content between the cloud and locals files that you
+can locally edit and manage in source control. So you don't have to
+manually edit the scripts over the web.
+
+Install the "clasp" utility for managing google App Scripts.
+https://developers.google.com/apps-script/guides/clasp
+npm install @google/clasp -g
+
+Log in:
+clasp login
+
+Clasp documentation:
+https://codelabs.developers.google.com/codelabs/clasp/#0
+
+----
+
+Anatomy of Google Sheets, projects and app scripts.
+
+The sheets.js source code is an app script that should be bound to a spreadsheet.
+The spreadsheet is the "container" of the script.
+A spreadsheet contains one or more sheets (individual pages, each of which may be downloaded as a CSV or TSV file).
+The app script is bound to the spreadsheet, so it has permission and access.
+The app script is also contained in a project associated with the spreadsheet.
+For each instance of a spreadsheet with a script bound to it, there is a project.
+
+Container-bound scripts:
+https://developers.google.com/apps-script/guides/bound
+
+Extending Google Sheets:
+https://developers.google.com/apps-script/guides/sheets
+
+----
+
+Example JSONster spreadsheet ids, projects, and links.
+
+Spreadsheet:
+jsonster
+JSONster World
+
+Spreadsheet ID:
+1nh8tlnanRaTmY8amABggxc0emaXCukCYR18EGddiC4w
+
+https://docs.google.com/spreadsheets/d/1nh8tlnanRaTmY8amABggxc0emaXCukCYR18EGddiC4w/edit#gid=0
+
+Project:
+JSONster - project-id-0993534538869130315
+
+Dashboard:
+https://console.cloud.google.com/home/dashboard?project=project-id-0993534538869130315
+
+Web app:
+https://script.google.com/macros/d/MdVIZmXeb4OwWm2sBIoxhEaJGBFN6q3R9/edit?uiv=2&mid=ACjPJvFXc9jkX6DAFcd80AyFaLCb9e5r5ZMFA8rL1jI_Z9-StpMI2Q3msLV_tNibUcOanOKPLX9XYUbqTIXXb-QMHqf7L0yzMIbHSx9vo75u2wZQ-nWl9AHVGgA479Lpz0-z0lDXv91wbqwo
+
+Script:
+sheets.gs
+
+Script ID: (project properties)
+19SOWT78niSnnYTM7eCAk7kMm2h0j4E1I2ePmeqfSiR5HFF69_zn8r5dR
+
+----
+
+To find the scriptID of a google sheets project:
+From the spreadsheet, select Tools => Script Editor to get to the script editor.
+
+From the script editor, select File => Project Properties, then select the Info tab, to see the Script ID field.
+
+For a project of a sheet that somebody else owned, the first time I selected Project Properties,
+there were no tabs, and it only let me change the name of the project.
+
+So I changed the name of the project and pressed OK.
+
+After that, a full Project Properties dialog came up with all the tabs
+including the Script ID field.
+
+Now that we have a new scriptID, we should clone the project into a
+new directory, make symlinks to the source files, delete unneeded
+files, and push it.
+
+Project name: Foobar
+scriptID: 1nGsHI5UvbnQwTulJAwLF7p17I6dWNT19VU1ER_3n4xHlCBQhuP-1xFXz
+
+mkdir foobar; cd foobar
+clasp clone 1nGsHI5UvbnQwTulJAwLF7p17I6dWNT19VU1ER_3n4xHlCBQhuP-1xFXz
+rm -f Code.js appsscript.json
+ln -s ../Whizzer.html; ln -s ../appsscript.json; ln -s ../sheets.js
+clasp push
+
+Add the project to server/spreadsheets.tsv
+
+Spreadsheet id:
+    Get it from the url of the spreadsheet.
+
+Url of script:
+    From the project page, select Publish => Deploy as Web App
+    Current web app URL: (might be an old version)
+
+    Web apps must now be deployed at a version. A new link will be
+    given when you click Update. The current link will continue to
+    work.
+    
+    Authorization required
+    EarlyStageSaaS needs your permission to access your data on Google.
+    Review Permissions
+    Sign in with Google.
+    That app isn't verified.
+    This app hasn't been verified by Google yet. Only proceed if you know and trust the developer.
+    Advanced
+    Google hasn't reviewed this app yet and can't confirm it's authentic. Unverified apps may pose a threat to your personal data. Learn more
+    Go to EarlyStageSaaS (unsafe)
+    EarlyStageSaaS wants to access your Google Account
+    This will allow EarlyStageSaaS to:
+    See, edit, create, and delete your spreadsheets in Google Drive
+    Allow
+    This project is now deployed as a web app.
+    Current web app URL:
+
+----
+
+Making a new spreadsheet with clasp:
+
+cd JSONster
+
+clasp clone 19SOWT78niSnnYTM7eCAk7kMm2h0j4E1I2ePmeqfSiR5HFF69_zn8r5dR
+
+That's the scriptId of JSONster that goes into JSONster/.clasp.json of the project that we want to clone.
+
+clasp pull
+
+rm -f "*~" ; clasp push
+
+NOTE: In order for clasp push to work, you have to go to the
+usersettings of the script project and enable the Google Apps Script
+API. https://script.google.com/home/usersettings
+
+NOTE: In order for clasp push to work, there may not be any extraneous
+files in the directory, including backups like "JSONster.js~" or
+"README.txt".
+
+NOTE: In the project, the script is named "sheet.gs", but in the
+directory, it's named "sheet.js". While in Unity's StreamingAssets
+directory, it's named "sheet.jss". Go figure.
+
+NOTE: clasp push will fail if there is a syntax error in the
+JavaScript file.
+
+----
