@@ -1,0 +1,84 @@
+https://nshipster.com/javascriptcore/
+https://www.raywenderlich.com/1227-javascriptcore-tutorial-for-ios-getting-started
+
+----
+
+https://steamclock.com/blog/2013/05/apple-objective-c-javascript-bridge/
+
+Update: Francisco Tolmasky pointed out on Hacker News that this API is
+not entirely new, but is an evolution of some existing parts of
+WebKit.framework: WebScripting and WebScriptObject. This doesn’t
+change much about the technical details, but it does make me even less
+certain than I already was of whether Apple has any specific future
+plans for this API.
+
+https://news.ycombinator.com/item?id=5713927
+
+tolmasky on May 15, 2013 | parent | favorite | on: Apple's new Objective-C to Javascript Bridge
+
+This just seems like an evolution of the existing Obj-C/JS bridge
+(namely, WebScriptObject
+https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/WebKit/Classes/WebScriptObject_Class/Reference/Reference.html#//apple_ref/doc/c_ref/WebScriptObject
+and WebScripting protocol
+https://developer.apple.com/library/mac/#documentation/Cocoa/Reference/WebKit/Protocols/WebScripting_Protocol/Reference/Reference.html
+).
+
+The main (very welcome) advancement seems to be that they've pushed
+this capability down from WebKit into JSCore. Today you can basically
+already do everything that's being shown in OP I think, you just were
+required to create an invisible WebView to host your JavaScript
+environment. You can easily expose classes to WebKit/JSCore (using
+KVC), and interact with JS objects from ObjC, and arrays, strings,
+etc. are auto-converted. The WebKit requirement is pretty annoying
+though, and as V8 has shown us, having a drop dead simple way of
+throwing JS into an app has some huge benefits.
+
+yoda_sl on May 15, 2013 [-]
+
+Totally agree it's more like an evolution, and I doubt it will be
+exposed on iOS at all, which means the same developer rules will apply
+and downloaded JS will have to be running inside a UIWebView.
+
+The fact is that after thinking about the iOS developer rules and what
+is currently available in iOS, it's totally doable to write a true
+Javascript bridge that respect all the requirement from the iOS rules
+and still let your JS code access all the ObjC runtime, in a totally
+transparent way aka I am able to write the following:
+
+  var userName = userNameTextfield.getText();
+  var helloMsg = "Hello " + userName;
+  messageLabel.setText(helloMsg); 
+
+The first line will directly get the text value of a UITextField (no
+callback used here), and it will end up calling directly the 'text'
+property on the UITextField. So the JS bridge works transparently
+where JS code call native ObjC code directly (without using callback)
+and obviously ObjC can directly access the JS side... there are a few
+gotcha but the full system works beautifully and surprising enough
+performance are quite good. It took me a few years to come up with the
+cleanest solution and implementation.
+
+I am currently working on integrating such piece of code into some of
+my apps and have them released on the AppStore. In fact if anyone good
+in JS is interested I would really appreciate some help to get that
+bridge off the ground since I truly believe there is a lot of great
+opportunities with a JS bridge to ObjC that respect all iOS rules. My
+contact info are my HN profile.
+
+Edit: minor typo fixed
+
+https://news.ycombinator.com/user?id=yoda_sl
+
+user:	yoda_sl
+created:	November 9, 2010
+karma:	1263
+about: Passionate engineer : iOS, Mac OS, large scale back end server
+system, mobile platform. Ex NeXT employee, Apple, Netflix Contact:
+stephen [AT] jetap [DOT] com
+
+orta on May 16, 2013 [-]
+
+I accepted a pod to cocoapods recently that does most of what you're
+after: https://github.com/marcuswestin/WebViewJavascriptBridge
+
+----

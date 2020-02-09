@@ -151,6 +151,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				am,
 				ar,
@@ -240,7 +241,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo \"=================================================\"\necho BUILT_PRODUCTS_DIR $BUILT_PRODUCTS_DIR\necho DESTINATION_FILENAME $DESTINATION_FILENAME\necho PRODUCT_NAME $PRODUCT_NAME\necho SRCROOT $SRCROOT\necho \"=================================================\"\necho \"Renaming path to libmono with install_name_tool...\"\necho $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME\ncp -r $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME/UnityJS.bundle $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME/UnityJS_Editor.bundle\nls -l $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME/UnityJS_Editor.bundle/Contents/MacOS/UnityJS\necho \"BEFORE\"\notool -L $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME/UnityJS_Editor.bundle/Contents/MacOS/UnityJS\n\necho install_name_tool -change @executable_path/../Frameworks/MonoEmbedRuntime/osx/libmono.0.dylib @executable_path/../Frameworks/Mono/MonoEmbedRuntime/osx/libmono.0.dylib $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME/UnityJS_Editor.bundle/Contents/MacOS/UnityJS\ninstall_name_tool -change @executable_path/../Frameworks/MonoEmbedRuntime/osx/libmono.0.dylib @executable_path/../Frameworks/Mono/MonoEmbedRuntime/osx/libmono.0.dylib $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME/UnityJS_Editor.bundle/Contents/MacOS/UnityJS\necho \"AFTER\"\notool -L $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME/UnityJS_Editor.bundle/Contents/MacOS/UnityJS\n\necho \"=================================================\"\necho \"Installing bundle into DerivedData...\"\nDESTINATION_DIR=\"$SRCROOT/DerivedData\"\necho DESTINATION_DIR $DESTINATION_DIR\nDESTINATION_FILENAME1=\"${PRODUCT_NAME}.bundle\"\nDESTINATION_FILENAME2=\"${PRODUCT_NAME}_Editor.bundle\"\necho DESTINATION_FILENAME1 $DESTINATION_FILENAME1 DESTINATION_FILENAME2 $DESTINATION_FILENAME2\necho Removing \"$DESTINATION_DIR\"\nrm -rf \"$DESTINATION_DIR\"\nmkdir -p \"$DESTINATION_DIR\"\necho Copying \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME1\" to \"$DESTINATION_DIR\"\ncp -r \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME1\" \"$DESTINATION_DIR\"\necho Copying \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME2\" to \"$DESTINATION_DIR\"\ncp -r \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME2\" \"$DESTINATION_DIR\"\necho NOW\nls -l \"$DESTINATION_DIR\"\n\necho \"=================================================\"\necho \"Installing bundle into UnityJS project...\"\nDESTINATION_DIR=\"$SRCROOT/../../Libraries/UnityJS/Plugins/macOS\"\necho DESTINATION_DIR $DESTINATION_DIR\nDESTINATION_FILENAME1=\"${PRODUCT_NAME}.bundle\"\nDESTINATION_FILENAME2=\"${PRODUCT_NAME}_Editor.bundle\"\necho DESTINATION_FILENAME1 $DESTINATION_FILENAME1 DESTINATION_FILENAME2 $DESTINATION_FILENAME2\necho Removing \"$DESTINATION_DIR/$DESTINATION_FILENAME1\" \"$DESTINATION_DIR/$DESTINATION_FILENAME2\"\nrm -rf \"$DESTINATION_DIR/$DESTINATION_FILENAME1\" \"$DESTINATION_DIR/$DESTINATION_FILENAME2\"\necho Copying \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME1\" to \"$DESTINATION_DIR\"\ncp -r \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME1\" \"$DESTINATION_DIR\"\necho Copying \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME2\" to \"$DESTINATION_DIR\"\ncp -r \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME2\" \"$DESTINATION_DIR\"\necho NOW\nls -l \"$DESTINATION_DIR\"\n\necho \"=================================================\"\n\n";
+			shellScript = "echo \"=================================================\"\necho BUILT_PRODUCTS_DIR $BUILT_PRODUCTS_DIR\necho DESTINATION_FILENAME $DESTINATION_FILENAME\necho PRODUCT_NAME $PRODUCT_NAME\necho SRCROOT $SRCROOT\necho \"=================================================\"\necho \"Renaming path to libmono with install_name_tool...\"\necho $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME\ncp -r $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME/UnityJS.bundle $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME/UnityJS_Editor.bundle\nls -l $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME/UnityJS_Editor.bundle/Contents/MacOS/UnityJS\necho \"BEFORE\"\notool -L $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME/UnityJS_Editor.bundle/Contents/MacOS/UnityJS\n\necho install_name_tool -change @executable_path/../Frameworks/MonoEmbedRuntime/osx/libmono.0.dylib @executable_path/../Frameworks/MonoBleedingEdge/MonoEmbedRuntime/osx/libmono.0.dylib $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME/UnityJS_Editor.bundle/Contents/MacOS/UnityJS\ninstall_name_tool -change @executable_path/../Frameworks/MonoEmbedRuntime/osx/libmono.0.dylib @executable_path/../Frameworks/MonoBleedingEdge/MonoEmbedRuntime/osx/libmono.0.dylib $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME/UnityJS_Editor.bundle/Contents/MacOS/UnityJS\necho \"AFTER\"\notool -L $BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME/UnityJS_Editor.bundle/Contents/MacOS/UnityJS\n\necho \"=================================================\"\necho \"Installing bundle into DerivedData...\"\nDESTINATION_DIR=\"$SRCROOT/DerivedData\"\necho DESTINATION_DIR $DESTINATION_DIR\nDESTINATION_FILENAME1=\"${PRODUCT_NAME}.bundle\"\nDESTINATION_FILENAME2=\"${PRODUCT_NAME}_Editor.bundle\"\necho DESTINATION_FILENAME1 $DESTINATION_FILENAME1 DESTINATION_FILENAME2 $DESTINATION_FILENAME2\necho Removing \"$DESTINATION_DIR\"\nrm -rf \"$DESTINATION_DIR\"\nmkdir -p \"$DESTINATION_DIR\"\necho Copying \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME1\" to \"$DESTINATION_DIR\"\ncp -r \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME1\" \"$DESTINATION_DIR\"\necho Copying \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME2\" to \"$DESTINATION_DIR\"\ncp -r \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME2\" \"$DESTINATION_DIR\"\necho NOW\nls -l \"$DESTINATION_DIR\"\n\necho \"=================================================\"\necho \"Installing bundle into UnityJS project...\"\nDESTINATION_DIR=\"$SRCROOT/../../Project/Assets/Libraries/UnityJS/Plugins/macOS\"\necho DESTINATION_DIR $DESTINATION_DIR\nDESTINATION_FILENAME1=\"${PRODUCT_NAME}.bundle\"\nDESTINATION_FILENAME2=\"${PRODUCT_NAME}_Editor.bundle\"\necho DESTINATION_FILENAME1 $DESTINATION_FILENAME1 DESTINATION_FILENAME2 $DESTINATION_FILENAME2\necho Removing \"$DESTINATION_DIR/$DESTINATION_FILENAME1\" \"$DESTINATION_DIR/$DESTINATION_FILENAME2\"\nrm -rf \"$DESTINATION_DIR/$DESTINATION_FILENAME1\" \"$DESTINATION_DIR/$DESTINATION_FILENAME2\"\necho Copying \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME1\" to \"$DESTINATION_DIR\"\ncp -r \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME1\" \"$DESTINATION_DIR\"\necho Copying \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME2\" to \"$DESTINATION_DIR\"\ncp -r \"$BUILT_PRODUCTS_DIR/$DESTINATION_FILENAME2\" \"$DESTINATION_DIR\"\necho NOW\nls -l \"$DESTINATION_DIR\"\n\necho \"=================================================\"\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -303,10 +304,7 @@
 				HEADER_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"-L/Applications/Unity/Unity.app/Contents/Frameworks/Mono/MonoEmbedRuntime/osx",
-					"-lmono.0",
-				);
+				OTHER_LDFLAGS = "-L/Applications/Unity/Unity.app/Contents/Frameworks/MonoBleedingEdge/MonoEmbedRuntime/osx";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -350,10 +348,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				OTHER_LDFLAGS = (
-					"-L/Applications/Unity/Unity.app/Contents/Frameworks/Mono/MonoEmbedRuntime/osx",
-					"-lmono.0",
-				);
+				OTHER_LDFLAGS = "-L/Applications/Unity/Unity.app/Contents/Frameworks/MonoBleedingEdge/MonoEmbedRuntime/osx";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -377,8 +372,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_LDFLAGS = (
-					"-L/Applications/Unity/Unity.app/Contents/Frameworks/Mono/MonoEmbedRuntime/osx",
-					"-lmono.0",
+					"-L/Applications/Unity/Unity.app/Contents/Frameworks/MonoBleedingEdge/MonoEmbedRuntime/osx",
 					"-headerpad_max_install_names",
 				);
 				OTHER_LIBTOOLFLAGS = "";
@@ -407,8 +401,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				OTHER_LDFLAGS = (
-					"-L/Applications/Unity/Unity.app/Contents/Frameworks/Mono/MonoEmbedRuntime/osx",
-					"-lmono.0",
+					"-L/Applications/Unity/Unity.app/Contents/Frameworks/MonoBleedingEdge/MonoEmbedRuntime/osx",
 					"-headerpad_max_install_names",
 				);
 				OTHER_LIBTOOLFLAGS = "";
