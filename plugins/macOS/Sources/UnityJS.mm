@@ -1168,7 +1168,8 @@ static void UNITY_INTERFACE_API OnGraphicsDeviceEvent(
 
 void _CUnityJSPlugin_SetUnitySendMessageCallback(void *unitySendMessageCallback_)
 {
-    //NSLog(@"CUnityJSPlugin: _CUnityJSPlugin_SetUnitySendMessageCallback: unitySendMessageCallback: %ld", (long)unitySendMessageCallback_);
+    NSLog(@"CUnityJSPlugin: _CUnityJSPlugin_SetUnitySendMessageCallback: unitySendMessageCallback: %ld", (long)unitySendMessageCallback_);
+
     unitySendMessageCallback = (UnitySendMessageCallback)unitySendMessageCallback_;
 }
 
@@ -1179,6 +1180,8 @@ void *_CUnityJSPlugin_Init(
     id instance =
         [[CUnityJSPlugin alloc]
             init:transparent];
+
+    NSLog(@"CR5WebStreamingPlugin: _CR5WebStreamingPlugin_Init");
 
     return (__bridge_retained void *)instance;
 }
